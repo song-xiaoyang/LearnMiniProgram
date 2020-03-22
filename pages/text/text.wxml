@@ -1,0 +1,18 @@
+<!--pages/text/text.wxml-->
+<!-- 1.基本使用 -->
+<text>Hello Word\n</text>
+<text>你好 小程序\n</text>
+
+<!-- 2. selectable: true-->
+<!-- 默认情况下text中的文本长按时不能被选中 -->
+<text selectable="{{true}}">hello song\n</text>
+<text selectable>hello song\n</text>
+
+<!-- 3.space决定文本空格的大小 -->
+<text>Hello word\n</text>
+<text space="nbsp">Hello word\n</text>
+<text space="emsp">Hello word\n</text>
+<text space="ensp">Hello word\n</text>
+
+<!-- 4.decode属性： 是否解码文本 -->
+<text decode>5 &gt; 3</text>
