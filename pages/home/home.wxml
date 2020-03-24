@@ -1,3 +1,9 @@
 <!--pages/home/home.wxml-->
 <text class='title'>hello</text>
-<button size='mini'>按钮</button>
+<button size='mini' >按钮</button>
+
+<!-- 1.hidden属性 -->
+<view bindtap="" catchtap="">哈哈哈</view>
+
+<!-- 1.3q全局样式 -->
+<view class="container">呵呵</view>

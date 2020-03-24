@@ -1,0 +1,84 @@
+<!--pages/wxml/wxml.wxml-->
+<!-- 1.wxml的格式 -->
+<view>---------条件判断-----------</view>
+<!-- wx:if的使用 -->
+<button size="mini" bindtap="handleSwitchShow">切换显示</button>
+<view wx:if="{{isShow}}">哈哈</view>
+
+<!-- wx:elif/wx:else -->
+<button size="mini" bindtap="handleIncreament">分数递增</button>
+<view wx:if="{{score >= 90}}">优秀</view>
+<view wx:elif="{{score >= 80}}">良好</view>
+<view wx:elif="{{score >= 60}}">及格</view>
+<view wx:else>不及格</view>
+
+<!-- hidden属性 -->
+<view hidden>我是hidden属性控制的内容</view>
+
+<!-- wx:if和hidden的区别 -->
+<!-- 
+区别：
+  hidden: 讲一个组件隐藏起来，该组件依然是存在(display: none)，只是改变css属性
+  wx:if 将一个组件隐藏起来，该组件根本不存在(压根没有创建)
+选择：
+  如果显示和隐藏切换的频率非常高，选择hidden
+  如果显示和隐藏切换的频率非常低，选择wx:if
+ -->
+<view>-----------------------------</view>
+<view  hidden="{{true}}">我是通过hidden控制的内容</view>
+<view wx:if="{{false}}">我是wx:if控制的内容</view>
+
+<view>--------------列表渲染----------------</view>
+<!-- 1.wx:for 的回顾-->
+<!-- 1.1 遍历数组/字符串/数字 -->
+<!-- <view wx:for="{{['abc', 'bca', 'shc']}}">{{item}}--{{index}}</view>
+<view wx:for="codewhy">{{item}}--{{index}}</view>
+<view wx:for="{{9}}">{{item}}</view> -->
+
+<!-- <block wx:if="{{isShow}}">
+  <button>按钮</button>
+  <view>呵呵呵</view>
+  <text>我是内容</text>
+</block>
+
+<view wx:for="{{3}}">
+  <button>按钮</button>
+  <view>呵呵呵</view>
+  <text>我是内容</text>
+</view> -->
+
+<!-- 3.item、index起名字 -->
+<!-- <view wx:for="{{movies}}">{{item}}</view>
+<view wx:for-item="movies" wx:for-index="i">{{movies}}{{i}}</view>
+
+<block wx:for="{{nums}}" wx:for-item="innernums">
+  <block wx:for="{{innernums}}">
+    <view>{{item}}</view>
+  </block>
+</block> -->
+
+
+<!-- 4.key的作用 -->
+<!-- <view>
+  <view wx:for="{{letters}}" wx:key="{{item}}">{{item}}</view>
+</view> -->
+
+<view>-----------template-----------------</view>
+<!-- 
+  之前的时候小程序不支持自定义组件：为了进行代码的复用： template
+ -->
+
+<!-- 模板中包裹着内容，在没有被使用钱，是不会进行渲染的 -->
+ <!-- <import src="模板文件路径"/> -->
+ <!-- <import src="../../wxml/template.wxml"/> -->
+ <import src="/wxml/template.wxml"/>
+
+ <!-- 结论：include不能导入模板 -->
+ <include src="/wxml/template.wxml"/>
+
+
+<!-- <template is="contentItem" data={{key1: value1, key2: value2}}/> -->
+<template is="contentItem" data="{{btnText: '按钮', content: '内容'}}"/>
+
+<template is="contentItem"/>
+<template is="abc"/>
